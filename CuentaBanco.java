@@ -1,4 +1,3 @@
-
 public class CuentaBanco {
 	public String titular;
 	public double cantidad = 0.0;
@@ -16,6 +15,34 @@ public class CuentaBanco {
 	public String toString() {
 		return "Titular:" + titular + "\nCantidad: " + cantidad + "$\n";
 	}
+	
+	public void ingresar(double cantidad) {
+		if (cantidad < 0)
+			System.out.println("~> Cantidad no valida.");
+		else {
+			this.cantidad = cantidad;
+			System.out.println("~> Cantidad ingresada con exito.");			
+		}
+	}
+	
+	public void retirar(double cantidad) {
+		if (cantidad < 0) {
+			System.out.println("~> Numero no validdo."); 
+			return;
+		}
+		
+		this.cantidad -= cantidad;
+		if (this.cantidad < 0) this.cantidad = 0;
+	}
 }
+
+
+
+
+
+
+
+
+
 
 
