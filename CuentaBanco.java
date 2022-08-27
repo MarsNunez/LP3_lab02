@@ -1,6 +1,6 @@
 public class CuentaBanco {
 	public String titular;
-	public double cantidad = 0.0;
+	public double cantidad = 0;
 	
 	CuentaBanco(String titular, double cantidad) {
 		this.titular = titular;
