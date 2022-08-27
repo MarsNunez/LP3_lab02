@@ -13,15 +13,15 @@ public class CuentaBanco {
 	
 	@Override
 	public String toString() {
-		return "Titular:" + titular + "\nCantidad: " + cantidad + "$\n";
+		return "Titular:" + titular + "\nCantidad: " + cantidad + "$";
 	}
 	
 	public void ingresar(double cantidad) {
 		if (cantidad < 0)
 			System.out.println("~> Cantidad no valida.");
 		else {
-			this.cantidad = cantidad;
-			System.out.println("~> Cantidad ingresada con exito.");			
+			this.cantidad += cantidad;
+			System.out.println("~> Cantidad ingresada con exito.\n");			
 		}
 	}
 	
@@ -35,14 +35,3 @@ public class CuentaBanco {
 		if (this.cantidad < 0) this.cantidad = 0;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
