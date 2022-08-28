@@ -1,13 +1,14 @@
+import java.util.Date;
 
 public class PerfilMedico {
 	String nombre;
 	String apellido;
-	char sexo;
+	String sexo;
 	String fechaNacimiento; // dia, mes, año
 	int altura; // cm
 	double peso; // kg
 	
-	PerfilMedico(String nombre, String apellido, char sexo, String fechaNacimiento, 
+	PerfilMedico(String nombre, String apellido, String sexo, String fechaNacimiento, 
 			int altura, double peso) {
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -33,11 +34,11 @@ public class PerfilMedico {
 		return apellido;
 	}
 	
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 	
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 	
@@ -64,7 +65,34 @@ public class PerfilMedico {
 	public double getPeso() {
 		return peso;
 	}
+	
+	public void calcEdadUsuario() {
+		String[] datosNacimiento = fechaNacimiento.split(" ");
+		int anio = Integer.parseInt(datosNacimiento[2]);
+		
+		Date dt = new Date();
+		int currentYear = dt.getYear() + 1900;
+		System.out.println("Edad del usuario: " + (currentYear - anio) + " años.");
+	}
+	
+	public void calcFrecuenciaCardiaca() {
+		String[] datosNacimiento = fechaNacimiento.split(" ");
+		int edad = Integer.parseInt(datosNacimiento[0]);
+		System.out.println("Frecuencia cardiaca maxima: " + (208 - (0.7 * edad)));
+	}
+	
+	public void calcMasaCorporal() {
+		System.out.println("Masa corporal: " + (peso / altura));
+	}
+	
+	@Override
+	public String toString() {
+		return "* --------- *  Datos * --------- *\nNombre: " + nombre + "\nApellido: "
+				+ apellido + "\nSexo: " + sexo + "\nFecha de nacimiento: " + fechaNacimiento
+				+ "\nAltura: " + altura + "\nPeso: " + peso + "\n";
+	}
 }
+
 
 
 
